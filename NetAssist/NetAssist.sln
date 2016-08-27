@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetAssist.Core", "NetAssist
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetAssist.Validation", "NetAssist.Validation\NetAssist.Validation.csproj", "{2725FEF0-A798-4AD4-926C-F99E0A2413F9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetAssist.Domain", "NetAssist.Domain\NetAssist.Domain.csproj", "{CBF7C47E-EFFE-4690-B93E-BE189C1A2437}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{2725FEF0-A798-4AD4-926C-F99E0A2413F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2725FEF0-A798-4AD4-926C-F99E0A2413F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2725FEF0-A798-4AD4-926C-F99E0A2413F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBF7C47E-EFFE-4690-B93E-BE189C1A2437}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBF7C47E-EFFE-4690-B93E-BE189C1A2437}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBF7C47E-EFFE-4690-B93E-BE189C1A2437}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBF7C47E-EFFE-4690-B93E-BE189C1A2437}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

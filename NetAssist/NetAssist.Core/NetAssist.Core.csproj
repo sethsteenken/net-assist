@@ -34,6 +34,10 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Annotations\AllowEmptyStringAttribute.cs" />
+    <Compile Include="Annotations\AllowZeroAttribute.cs" />
+    <Compile Include="Annotations\SerializeIgnoreAttribute.cs" />
+    <Compile Include="Annotations\SerializeIncludeAttribute.cs" />
     <Compile Include="Exceptions\AppSettingNotFoundException.cs" />
     <Compile Include="Exceptions\ClientSideException.cs" />
     <Compile Include="Exceptions\DataObjectNotFoundException.cs" />
@@ -41,6 +45,7 @@
     <Compile Include="Extensions\ArrayExtensions.cs" />
     <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Extensions\EnumExtesnsions.cs" />
     <Compile Include="Extensions\LinqExtensions.cs" />
     <Compile Include="Extensions\NumericExtensions.cs" />
     <Compile Include="Extensions\NumericFormatExtensions.cs" />
