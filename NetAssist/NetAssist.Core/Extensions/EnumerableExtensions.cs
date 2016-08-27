@@ -49,5 +49,31 @@ namespace NetAssist
         {
             return list != null && list.Any();
         }
+
+        public static string ToDelimitedString(this IEnumerable<int> items)
+        {
+            return ToDelimitedString(items, StringExtensions.DefaultDelimiter);
+        }
+
+        public static string ToDelimitedString(this IEnumerable<int> items, string delimiter)
+        {
+            if (!items.HasItems())
+                return string.Empty;
+
+            return string.Join(delimiter, items);
+        }
+
+        public static string ToDelimitedString(this IEnumerable<string> items)
+        {
+            return ToDelimitedString(items, StringExtensions.DefaultDelimiter);
+        }
+
+        public static string ToDelimitedString(this IEnumerable<string> items, string delimiter)
+        {
+            if (!items.HasItems())
+                return string.Empty;
+
+            return string.Join(delimiter, items);
+        }
     }
 }

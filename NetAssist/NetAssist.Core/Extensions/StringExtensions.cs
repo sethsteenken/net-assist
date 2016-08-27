@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -6,6 +8,8 @@ namespace NetAssist
 {
     public static class StringExtensions
     {
+        internal const string DefaultDelimiter = ",";
+
         public static string[] ToWords(this string text)
         {
             return ToWords(text, lower: false);
@@ -104,8 +108,73 @@ namespace NetAssist
 
         private static string RemoveAccent(this string txt)
         {
-            byte[] bytes = System.Text.Encoding.GetEncoding("Cyrillic").GetBytes(txt);
-            return System.Text.Encoding.ASCII.GetString(bytes);
+            byte[] bytes = Encoding.GetEncoding("Cyrillic").GetBytes(txt);
+            return Encoding.ASCII.GetString(bytes);
+        }
+
+
+        public static List<int> ToIntList(this string value)
+        {
+            return ToIntList(value, DefaultDelimiter);
+        }
+
+        public static List<int> ToIntList(this string value, string delimiter)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+                return new List<int>();
+
+            if (string.IsNullOrWhiteSpace(delimiter) || delimiter.Length > 1)
+                delimiter = DefaultDelimiter;
+
+            value = Regex.Replace(value, @"[^0-9a-zA-Z]+", delimiter);
+            var items = value.Split(delimiter[0]);
+            var list = new List<int>();
+
+            foreach (var item in items)
+            {
+                if (!string.IsNullOrWhiteSpace(item))
+                {
+                    int itemAsInt = 0;
+                    if (int.TryParse(item, out itemAsInt))
+                        list.Add(itemAsInt);
+                }
+            }
+
+            return list;
+        }
+
+        public static string ToSentenceFriendlyText(this IEnumerable<string> list)
+        {
+            return ToSentenceFriendlyText(list, "and");
+        }
+
+        public static string ToSentenceFriendlyText(this IEnumerable<string> list, string lastItemTextSeparator)
+        {
+            if (!list.HasItems())
+                return string.Empty;
+
+            var items = new List<string>(list.Where(x => !string.IsNullOrWhiteSpace(x)));
+
+            if (items.Count == 1)
+                return items[0].SetNullToEmpty();
+
+            if (items.Count == 2)
+                return $"{items[0]} {lastItemTextSeparator} {items[1]}";
+
+            var sb = new StringBuilder();
+
+            for (int i = 1; i <= items.Count; i++)
+            {
+                sb.Append(items[i - 1]);
+                if (i != items.Count)
+                {
+                    sb.Append(", "); // always have Oxford comma
+                    if (i == (items.Count - 1))
+                        sb.Append($"{lastItemTextSeparator} ");
+                }
+            }
+
+            return sb.ToString();
         }
     }
 }
