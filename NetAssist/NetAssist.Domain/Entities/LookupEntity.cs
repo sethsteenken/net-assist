@@ -1,13 +1,12 @@
-﻿namespace NetAssist.Domain
+﻿using System;
+
+namespace NetAssist.Domain
 {
     public abstract class LookupEntity : Entity<int>
     {
         protected LookupEntity() { }
 
-        protected LookupEntity(string name) : base()
-        {
-            Name = name?.Trim();
-        }
+        protected LookupEntity(Enum value) : this(value.ToInt(), value?.ToFriendlyName()) { }
 
         protected LookupEntity(int id, string name) : base(id)
         {

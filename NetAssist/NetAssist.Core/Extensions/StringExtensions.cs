@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -9,6 +10,11 @@ namespace NetAssist
     public static class StringExtensions
     {
         internal const string DefaultDelimiter = ",";
+        // They're always one character but EndsWith is shorter than
+        // array style access to last path character. Change this
+        // if performance are a (measured) issue.
+        internal static readonly string DirectorySeparator = Path.DirectorySeparatorChar.ToString();
+        internal static readonly string DirectorySeparatorAlt = Path.AltDirectorySeparatorChar.ToString();
 
         public static string[] ToWords(this string text)
         {
@@ -112,7 +118,6 @@ namespace NetAssist
             return Encoding.ASCII.GetString(bytes);
         }
 
-
         public static List<int> ToIntList(this string value)
         {
             return ToIntList(value, DefaultDelimiter);
@@ -175,6 +180,49 @@ namespace NetAssist
             }
 
             return sb.ToString();
+        }
+
+        public static string ToDirectoryPathFormat(this string path)
+        {
+            return ToDirectoryPathFormat(path, forIO: false);
+        }
+
+        public static string ToDirectoryPathFormat(this string path, bool forIO)
+        {
+            if (string.IsNullOrWhiteSpace(path))
+                return string.Empty;
+
+            // REF - http://stackoverflow.com/questions/20405965/how-to-ensure-there-is-trailing-directory-separator-in-paths
+
+            path = path.Trim();
+
+            string separator = forIO ? DirectorySeparator : DirectorySeparatorAlt;
+
+            if (path.EndsWith(separator))
+                return path;
+
+            return string.Concat(path, separator);
+        }
+
+        public static string Before(this string value, string lookup)
+        {
+            int position = value.IndexOf(lookup);
+            if (position == -1)
+                return value;
+
+            return value.Substring(0, position);
+        }
+
+        public static T ToEnum<T>(this string value) where T : struct
+        {
+            if (string.IsNullOrWhiteSpace(value))
+                return default(T);
+
+            T enumValue;
+            if (Enum.TryParse<T>(value, out enumValue))
+                return enumValue;
+
+            return default(T);
         }
     }
 }
