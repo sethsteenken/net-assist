@@ -17,11 +17,11 @@ namespace NetAssist.Domain
             Guid = guid;
         }
 
-        public Guid Guid { get; private set; }
-        public bool Archive { get; set; }
+        public virtual Guid Guid { get; protected set; }
+        public virtual bool Archive { get; set; }
 
         [SerializeIgnore]
-        protected abstract int EntityTypeId { get; }
+        public abstract EntityType EntityType { get; }
 
         [SerializeIgnore]
         public virtual bool LogHistory => true;

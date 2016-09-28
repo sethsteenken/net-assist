@@ -72,6 +72,7 @@
     <Compile Include="ValueObjects\FileContent.cs" />
     <Compile Include="ValueObjects\FileDirectory.cs" />
     <Compile Include="ValueObjects\FullName.cs" />
+    <Compile Include="ValueObjects\Name.cs" />
     <Compile Include="ValueObjects\QueryObjects\PageCriteria.cs" />
     <Compile Include="ValueObjects\QueryObjects\ResultListFilter.cs" />
     <Compile Include="ValueObjects\QueryObjects\SortCriteria.cs" />
