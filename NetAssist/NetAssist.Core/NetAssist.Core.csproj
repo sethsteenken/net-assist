@@ -34,10 +34,11 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Annotations\AllowEmptyStringAttribute.cs" />
-    <Compile Include="Annotations\AllowZeroAttribute.cs" />
-    <Compile Include="Annotations\SerializeIgnoreAttribute.cs" />
-    <Compile Include="Annotations\SerializeIncludeAttribute.cs" />
+    <Compile Include="Attributes\AllowEmptyStringAttribute.cs" />
+    <Compile Include="Attributes\AllowZeroAttribute.cs" />
+    <Compile Include="Attributes\SerializeAttribute.cs" />
+    <Compile Include="Attributes\SerializeIgnoreAttribute.cs" />
+    <Compile Include="Attributes\SerializeIncludeAttribute.cs" />
     <Compile Include="Exceptions\AppSettingNotFoundException.cs" />
     <Compile Include="Exceptions\ClientSideException.cs" />
     <Compile Include="Exceptions\DataObjectNotFoundException.cs" />

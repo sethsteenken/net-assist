@@ -34,6 +34,7 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Attributes\HistoryStoreAttribute.cs" />
     <Compile Include="Entities\DataEntity.cs" />
     <Compile Include="Entities\Entity.cs" />
     <Compile Include="Entities\EntityHistory.cs" />
