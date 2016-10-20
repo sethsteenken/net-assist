@@ -61,7 +61,10 @@
     <Compile Include="Interfaces\Services\IMapper.cs" />
     <Compile Include="Interfaces\Services\ISerializer.cs" />
     <Compile Include="Interfaces\Services\ISettings.cs" />
+    <Compile Include="Interfaces\Services\IValueParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\ValueParser.cs" />
+    <Compile Include="Services\WindowsFileStorage.cs" />
     <Compile Include="ValueObjects\Address.cs" />
     <Compile Include="ValueObjects\Cache\CacheAction.cs" />
     <Compile Include="ValueObjects\Cache\CacheComponent.cs" />
