@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace NetAssist.Domain
 {
-    public interface IEntityRepository<T> : IRepository<T, int> where T : DataEntity
+    public interface IEntityRepository<T> : IRepository<T, int> where T : DataEntityBase
     {
         T GetByGuid(Guid guid);
         int GetId(Guid guid);

@@ -5,17 +5,17 @@ namespace NetAssist.Domain
 {
     public static class DataEntityExtensions
     {
-        public static IQueryable<T> Active<T>(this IQueryable<T> query) where T : DataEntity
+        public static IQueryable<T> Active<T>(this IQueryable<T> query) where T : DataEntityBase
         {
             return query.Where(x => !x.Archive);
         }
 
-        public static IEnumerable<T> Active<T>(this ICollection<T> query) where T : DataEntity
+        public static IEnumerable<T> Active<T>(this ICollection<T> query) where T : DataEntityBase
         {
             return query.Where(x => !x.Archive);
         }
 
-        public static IEnumerable<T> Active<T>(this IEnumerable<T> query) where T : DataEntity
+        public static IEnumerable<T> Active<T>(this IEnumerable<T> query) where T : DataEntityBase
         {
             return query.Where(x => !x.Archive);
         }
