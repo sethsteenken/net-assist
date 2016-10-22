@@ -2,11 +2,11 @@
 
 namespace NetAssist.Domain
 {
-    public abstract class EntityHistory<T> : Entity<T>
+    public abstract class EntityHistoryBase<T> : Entity<T>
     {
-        protected EntityHistory() { }
+        protected EntityHistoryBase() { }
 
-        public EntityHistory(T typeId, CommandTypeOption commandType, Guid entityId, string data, T userId)
+        public EntityHistoryBase(T typeId, CommandTypeOption commandType, Guid entityId, string data, T userId)
         {
             TypeId = typeId;
             CommandTypeId = (int)commandType;
@@ -17,7 +17,7 @@ namespace NetAssist.Domain
 
         public Guid EntityId { get; private set; }
         public T TypeId { get; private set; }
-        public virtual EntityType Type { get; private set; }
+        public virtual EntityTypeBase Type { get; private set; }
 
 
         public int CommandTypeId { get; private set; }

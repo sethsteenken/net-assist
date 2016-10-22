@@ -37,8 +37,8 @@
     <Compile Include="Attributes\HistoryStoreAttribute.cs" />
     <Compile Include="Entities\DataEntity.cs" />
     <Compile Include="Entities\Entity.cs" />
-    <Compile Include="Entities\EntityHistory.cs" />
-    <Compile Include="Entities\EntityType.cs" />
+    <Compile Include="Entities\EntityHistoryBase.cs" />
+    <Compile Include="Entities\EntityTypeBase.cs" />
     <Compile Include="Entities\LookupEntity.cs" />
     <Compile Include="Enums\CommandTypeOption.cs" />
     <Compile Include="Enums\SerializePropertiesOption.cs" />

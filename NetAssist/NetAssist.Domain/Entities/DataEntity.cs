@@ -21,7 +21,7 @@ namespace NetAssist.Domain
         public virtual bool Archive { get; set; }
 
         [SerializeIgnore]
-        public abstract EntityType EntityType { get; }
+        public abstract EntityTypeBase EntityType { get; }
 
         [SerializeIgnore]
         public virtual bool LogHistory => true;
