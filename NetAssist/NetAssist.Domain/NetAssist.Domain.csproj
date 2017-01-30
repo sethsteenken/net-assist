@@ -46,6 +46,7 @@
     <Compile Include="Extensions\QueryExtensions.cs" />
     <Compile Include="Extensions\SelectItemExtensions.cs" />
     <Compile Include="Extensions\SortExtensions.cs" />
+    <Compile Include="Helpers\USStates.cs" />
     <Compile Include="Interfaces\Repositories\ICommandRepository.cs" />
     <Compile Include="Interfaces\Repositories\IEntityRepository.cs" />
     <Compile Include="Interfaces\Repositories\ILookupRepository.cs" />
@@ -83,6 +84,7 @@
     <Compile Include="ValueObjects\SelectDataEntityItem.cs" />
     <Compile Include="ValueObjects\SelectItem.cs" />
     <Compile Include="ValueObjects\TypeRegistrationMatch.cs" />
+    <Compile Include="ValueObjects\USState.cs" />
     <Compile Include="ValueObjects\ValueObject.cs" />
   </ItemGroup>
   <ItemGroup>
