@@ -224,5 +224,26 @@ namespace NetAssist
 
             return default(T);
         }
+
+        public static string ToSnakeCase(this string value)
+        {
+            return ToSnakeCase(value, true);
+        }
+
+        public static string ToSnakeCase(this string value, bool lower)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+                return value;
+
+            value = string.Concat(
+                Regex.Replace(value.Trim(), @"\s+", "_")
+                .Select((x, i) =>
+
+                    (i > 0 && char.IsUpper(x)) ? string.Concat("_" + x.ToString()) : x.ToString())
+
+                ).Replace("__", "_");
+
+            return lower ? value.ToLower() : value;
+        }
     }
 }

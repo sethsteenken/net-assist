@@ -48,5 +48,13 @@ namespace NetAssist
             // Combine  queries into one resulting
             return interfaceProps.Union(nonInterfaceProps).Union(genericTypes);
         }
+
+        public static bool IsEnumerable(this object obj)
+        {
+            if (obj == null)
+                return false;
+
+            return obj.GetType().IsGenericType && obj is IEnumerable;
+        }
     }
 }

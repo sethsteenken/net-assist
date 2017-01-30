@@ -44,5 +44,20 @@ namespace NetAssist
                 }.Contains(type) ||
                 Convert.GetTypeCode(type) != TypeCode.Object;
         }
+
+        public static IEnumerable<Type> GetTopLevelInterfaces(this Type type)
+        {
+            if (type == null)
+                return null;
+
+            var allInterfaces = type.GetInterfaces();
+            var interfaces = allInterfaces
+                .Where(x => !allInterfaces.Any(y => y.GetInterfaces().Contains(x)));
+
+            if (type.BaseType != null)
+                interfaces = interfaces.Except(type.BaseType.GetInterfaces());
+
+            return interfaces;
+        }
     }
 }

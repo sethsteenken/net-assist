@@ -10,6 +10,7 @@ namespace NetAssist.Domain
         bool TransactionOpen { get; }
         void BeginTransaction();
         void CommitTransaction();
+        Task CommitTransactionAsync();
         void RollbackTransaction();
         void RollbackTransaction(Exception ex);
     }

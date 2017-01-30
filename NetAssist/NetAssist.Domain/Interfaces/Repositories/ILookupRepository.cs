@@ -6,5 +6,6 @@ namespace NetAssist.Domain
     {
         IReadOnlyList<SelectItem> GetSelections();
         IReadOnlyList<TSelectType> GetSelections<TSelectType>() where TSelectType : SelectItem;
+        T GetByName(string name);
     }
 }

@@ -41,6 +41,7 @@
     <Compile Include="Enums\CommandTypeOption.cs" />
     <Compile Include="Enums\SerializePropertiesOption.cs" />
     <Compile Include="Enums\SortDirectionOption.cs" />
+    <Compile Include="Extensions\AssemblyExtensions.cs" />
     <Compile Include="Extensions\DataEntityExtensions.cs" />
     <Compile Include="Extensions\QueryExtensions.cs" />
     <Compile Include="Extensions\SelectItemExtensions.cs" />
@@ -81,6 +82,7 @@
     <Compile Include="ValueObjects\QueryResult.cs" />
     <Compile Include="ValueObjects\SelectDataEntityItem.cs" />
     <Compile Include="ValueObjects\SelectItem.cs" />
+    <Compile Include="ValueObjects\TypeRegistrationMatch.cs" />
     <Compile Include="ValueObjects\ValueObject.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -39,8 +39,11 @@ namespace NetAssist.Domain
 
         public static bool operator ==(Entity<TId> x, Entity<TId> y)
         {
-            if (Equals(null, x))
+            if (Equals(null, x) && Equals(null, y))
                 return true;
+
+            if (Equals(null, x))
+                return false;
 
             return x.Equals(y);
         }

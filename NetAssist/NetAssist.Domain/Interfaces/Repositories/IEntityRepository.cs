@@ -8,5 +8,6 @@ namespace NetAssist.Domain
         T GetByGuid(Guid guid);
         int GetId(Guid guid);
         IReadOnlyList<T> GetAll(IList<Guid> ids);
+        Guid GetGuid(int id);
     }
 }

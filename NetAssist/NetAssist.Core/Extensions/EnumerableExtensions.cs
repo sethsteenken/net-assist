@@ -75,5 +75,25 @@ namespace NetAssist
 
             return string.Join(delimiter, items);
         }
+
+        public static void AddUnique<T>(this List<T> list, T item)
+        {
+            if (list == null)
+                list = new List<T>();
+
+            if (!list.Contains(item))
+                list.Add(item);
+        }
+
+        public static void AddUniqueRange<T>(this List<T> list, IEnumerable<T> items)
+        {
+            if (list == null)
+                list = new List<T>();
+
+            foreach (var item in items)
+            {
+                AddUnique(list, item);
+            }
+        }
     }
 }

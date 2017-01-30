@@ -7,5 +7,6 @@ namespace NetAssist.Domain
         TType GetById(TKey id);
         IReadOnlyList<TType> GetAll();
         IReadOnlyList<TType> GetAll(IList<TKey> ids);
+        int Count();
     }
 }

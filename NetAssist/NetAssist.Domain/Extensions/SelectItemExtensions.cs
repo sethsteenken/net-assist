@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace NetAssist.Domain
@@ -11,6 +12,14 @@ namespace NetAssist.Domain
                 return new List<int>();
 
             return items.Where(x => x.Id.CleanNullable() != null).Select(x => (int)x.Id).ToList();
+        }
+
+        public static string LookupName<T>(this IEnumerable<T> items, string value) where T : SelectItem
+        {
+            if (!items.HasItems())
+                return null;
+
+            return items.Where(x => string.Compare(x.Value, value, StringComparison.InvariantCultureIgnoreCase) == 0).Select(x => x.Name).FirstOrDefault();
         }
     }
 }
