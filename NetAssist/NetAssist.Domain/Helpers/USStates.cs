@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace NetAssist.Domain
 {
-    public static class USUSStates
+    public static class USStates
     {
         private static readonly List<USState> _states = new List<USState>
         {
