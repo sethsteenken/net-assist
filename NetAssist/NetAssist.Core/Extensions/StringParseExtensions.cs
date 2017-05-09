@@ -9,17 +9,17 @@ namespace NetAssist
     public static class StringParseExtensions
     {
         #region Parse Integer
-        public static int ParseInteger(this string value)
+        public static int ParseToInteger(this string value)
         {
-            return ParseInteger(value, allowEmpty: false);
+            return ParseToInteger(value, allowEmpty: false);
         }
 
-        public static int ParseInteger(this string value, bool allowEmpty)
+        public static int ParseToInteger(this string value, bool allowEmpty)
         {
-            return ParseInteger(value, allowEmpty, throwError: true);
+            return ParseToInteger(value, allowEmpty, throwError: true);
         }
 
-        public static int ParseInteger(this string value, bool allowEmpty, bool throwError)
+        public static int ParseToInteger(this string value, bool allowEmpty, bool throwError)
         {
             if (string.IsNullOrWhiteSpace(value))
             {
@@ -81,17 +81,17 @@ namespace NetAssist
         #endregion
 
         #region Parse Double
-        public static double ParseDouble(this string value)
+        public static double ParseToDouble(this string value)
         {
-            return ParseDouble(value, allowEmpty: false);
+            return ParseToDouble(value, allowEmpty: false);
         }
 
-        public static double ParseDouble(this string value, bool allowEmpty)
+        public static double ParseToDouble(this string value, bool allowEmpty)
         {
-            return ParseDouble(value, allowEmpty, throwError: true);
+            return ParseToDouble(value, allowEmpty, throwError: true);
         }
 
-        public static double ParseDouble(this string value, bool allowEmpty, bool throwError)
+        public static double ParseToDouble(this string value, bool allowEmpty, bool throwError)
         {
             if (string.IsNullOrWhiteSpace(value))
             {
@@ -117,17 +117,17 @@ namespace NetAssist
         #endregion
 
         #region Parse Bool
-        public static bool ParseBool(this string value)
+        public static bool ParseToBool(this string value)
         {
-            return ParseBool(value, allowEmpty: false);
+            return ParseToBool(value, allowEmpty: false);
         }
 
-        public static bool ParseBool(this string value, bool allowEmpty)
+        public static bool ParseToBool(this string value, bool allowEmpty)
         {
-            return ParseBool(value, allowEmpty, throwError: true);
+            return ParseToBool(value, allowEmpty, throwError: true);
         }
 
-        public static bool ParseBool(this string value, bool allowEmpty, bool throwError)
+        public static bool ParseToBool(this string value, bool allowEmpty, bool throwError)
         {
             if (string.IsNullOrWhiteSpace(value))
             {
@@ -153,17 +153,17 @@ namespace NetAssist
         #endregion
 
         #region Parse Long
-        public static long ParseLong(this string value)
+        public static long ParseToLong(this string value)
         {
-            return ParseLong(value, allowEmpty: false);
+            return ParseToLong(value, allowEmpty: false);
         }
 
-        public static long ParseLong(this string value, bool allowEmpty)
+        public static long ParseToLong(this string value, bool allowEmpty)
         {
-            return ParseLong(value, allowEmpty, throwError: true);
+            return ParseToLong(value, allowEmpty, throwError: true);
         }
 
-        public static long ParseLong(this string value, bool allowEmpty, bool throwError)
+        public static long ParseToLong(this string value, bool allowEmpty, bool throwError)
         {
             if (string.IsNullOrWhiteSpace(value))
             {
@@ -185,6 +185,42 @@ namespace NetAssist
             }
 
             return num;
+        }
+        #endregion
+
+        #region Parse DateTime
+        public static DateTime? ParseToDateTime(this string value)
+        {
+            return ParseToDateTime(value, allowEmpty: false);
+        }
+
+        public static DateTime? ParseToDateTime(this string value, bool allowEmpty)
+        {
+            return ParseToDateTime(value, allowEmpty, throwError: true);
+        }
+
+        public static DateTime? ParseToDateTime(this string value, bool allowEmpty, bool throwError)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                if (allowEmpty)
+                    return null;
+                else if (throwError)
+                    throw new ArgumentNullException(nameof(value));
+                else
+                    return null;
+            }
+
+            DateTime date;
+            if (!DateTime.TryParse(value, out date))
+            {
+                if (throwError)
+                    throw new FormatException($"String value of {value} not correct format for parsing as DateTime.");
+                else
+                    return null;
+            }
+
+            return date;
         }
         #endregion
     }

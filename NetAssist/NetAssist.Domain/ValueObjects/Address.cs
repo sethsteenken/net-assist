@@ -30,5 +30,7 @@
         public string State { get; private set; }
         public string Zip { get; private set; }
         public string Country { get; private set; }
+
+        public static Address Empty => new Address();
     }
 }

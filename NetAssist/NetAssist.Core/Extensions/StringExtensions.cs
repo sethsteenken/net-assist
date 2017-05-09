@@ -245,5 +245,13 @@ namespace NetAssist
 
             return lower ? value.ToLower() : value;
         }
+
+        public static IEnumerable<string> ToLower(this IEnumerable<string> list)
+        {
+            foreach (var item in list)
+            {
+                yield return item.ToLower();
+            }
+        }
     }
 }

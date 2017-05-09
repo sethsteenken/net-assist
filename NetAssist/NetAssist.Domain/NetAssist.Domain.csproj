@@ -43,6 +43,7 @@
     <Compile Include="Enums\SortDirectionOption.cs" />
     <Compile Include="Extensions\AssemblyExtensions.cs" />
     <Compile Include="Extensions\DataEntityExtensions.cs" />
+    <Compile Include="Extensions\DateTimeExtensions.cs" />
     <Compile Include="Extensions\QueryExtensions.cs" />
     <Compile Include="Extensions\SelectItemExtensions.cs" />
     <Compile Include="Extensions\SortExtensions.cs" />
@@ -66,14 +67,18 @@
     <Compile Include="Services\ValueParser.cs" />
     <Compile Include="Services\WindowsFileStorage.cs" />
     <Compile Include="ValueObjects\Address.cs" />
+    <Compile Include="ValueObjects\Age.cs" />
     <Compile Include="ValueObjects\Cache\CacheAction.cs" />
     <Compile Include="ValueObjects\Cache\CacheComponent.cs" />
     <Compile Include="ValueObjects\CommandDate.cs" />
+    <Compile Include="ValueObjects\CommandDateOptional.cs" />
     <Compile Include="ValueObjects\CommandResults\CommandResult.cs" />
     <Compile Include="ValueObjects\CommandResults\EntitySaveResult.cs" />
     <Compile Include="ValueObjects\CommandResults\GenericDataSaveResult.cs" />
     <Compile Include="ValueObjects\DateTimeRange.cs" />
+    <Compile Include="ValueObjects\DateTimeRangeOpenEnd.cs" />
     <Compile Include="ValueObjects\FileContent.cs" />
+    <Compile Include="ValueObjects\FileData.cs" />
     <Compile Include="ValueObjects\FileDirectory.cs" />
     <Compile Include="ValueObjects\FullName.cs" />
     <Compile Include="ValueObjects\Name.cs" />

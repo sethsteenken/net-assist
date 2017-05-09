@@ -38,7 +38,7 @@ namespace NetAssist.Domain
 
         public virtual int? Id
         {
-            get { return string.IsNullOrWhiteSpace(Value) ? (int?)null : Value.ParseInteger(allowEmpty: true, throwError: false); }
+            get { return string.IsNullOrWhiteSpace(Value) ? (int?)null : Value.ParseToInteger(allowEmpty: true, throwError: false); }
         }
 
         public void IndentName(int level)

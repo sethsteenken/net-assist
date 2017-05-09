@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
+using System.Linq.Expressions;
 
 namespace NetAssist.Domain
 {
@@ -25,6 +27,32 @@ namespace NetAssist.Domain
             total = query.Count(); //grab count of total before paging
 
             return query.Paged(paging);
+        }
+
+        public static IOrderedQueryable<TSource> OrderBy<TSource, TKey>(this IQueryable<TSource> source, Expression<Func<TSource, TKey>> keySelector, SortDirectionOption direction)
+        {
+            switch (direction)
+            {
+                case SortDirectionOption.Ascending:
+                    return source.OrderBy(keySelector);
+                case SortDirectionOption.Descending:
+                    return source.OrderByDescending(keySelector);
+                default:
+                    throw new InvalidOperationException("OrderBy SortDirection not valid.");
+            }
+        }
+
+        public static IOrderedQueryable<TSource> ThenBy<TSource, TKey>(this IOrderedQueryable<TSource> source, Expression<Func<TSource, TKey>> keySelector, SortDirectionOption direction)
+        {
+            switch (direction)
+            {
+                case SortDirectionOption.Ascending:
+                    return source.ThenBy(keySelector);
+                case SortDirectionOption.Descending:
+                    return source.ThenByDescending(keySelector);
+                default:
+                    throw new InvalidOperationException("ThenBy SortDirection not valid.");
+            }
         }
     }
 }

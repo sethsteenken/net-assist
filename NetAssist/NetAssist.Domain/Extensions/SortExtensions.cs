@@ -7,17 +7,17 @@ namespace NetAssist.Domain
 {
     public static class SortExtensions
     {
-        public static IQueryable<T> OrderBy<T>(this IQueryable<T> source, string orderBy, params object[] values)
+        public static IOrderedQueryable<T> OrderBy<T>(this IQueryable<T> source, string orderBy, params object[] values)
         {
             return source.OrderBy(new SortCriteria(orderBy), values);
         }
 
-        public static IQueryable<T> OrderBy<T>(this IQueryable<T> source, string orderBy, SortDirectionOption direction, params object[] values)
+        public static IOrderedQueryable<T> OrderBy<T>(this IQueryable<T> source, string orderBy, SortDirectionOption direction, params object[] values)
         {
             return source.OrderBy(new SortCriteria(orderBy, direction), values);
         }
 
-        public static IQueryable<T> OrderBy<T>(this IQueryable<T> source, SortCriteria sort, params object[] values)
+        public static IOrderedQueryable<T> OrderBy<T>(this IQueryable<T> source, SortCriteria sort, params object[] values)
         {
             //Reference - http://stackoverflow.com/a/233505
             string[] props = sort.SortBy.Split('.');

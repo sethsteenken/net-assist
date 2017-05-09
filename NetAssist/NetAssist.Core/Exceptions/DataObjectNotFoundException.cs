@@ -16,6 +16,8 @@ namespace NetAssist
 
         public DataObjectNotFoundException(string objectName, Guid guid) : base($"{FormatMessage(objectName)} Supplied Guid: {guid}") { }
 
+        public DataObjectNotFoundException(string objectName, Guid? guid) : base($"{FormatMessage(objectName)} Supplied Guid: {guid}") { }
+
         public DataObjectNotFoundException(string objectName, string message) : base($"{FormatMessage(objectName)} Message: {message}") { }
 
         public DataObjectNotFoundException(string message, Exception inner) : base(message, inner) { }

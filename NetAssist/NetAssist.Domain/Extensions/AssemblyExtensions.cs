@@ -19,7 +19,7 @@ namespace NetAssist.Domain
 
             var registrations =
                 from type in assembly.GetExportedTypes()
-                where type.GetTopLevelInterfaces().Any()
+                where type.GetTopLevelInterfaces().Count() == 1
                     && !type.IsAbstract
                 select type;
 

@@ -195,5 +195,19 @@ namespace NetAssist
 
             return ToTimeZoneTime((DateTime)time, tzi);
         }
+
+        public static bool IsMidnight(this DateTime? date)
+        {
+            if (!date.HasValue())
+                return false;
+            return IsMidnight((DateTime)date);
+        }
+
+        public static bool IsMidnight(this DateTime date)
+        {
+            if (!date.HasValue())
+                return false;
+            return date.TimeOfDay == TimeSpan.Zero;
+        }
     }
 }

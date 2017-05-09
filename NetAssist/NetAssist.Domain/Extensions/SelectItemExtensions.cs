@@ -21,5 +21,18 @@ namespace NetAssist.Domain
 
             return items.Where(x => string.Compare(x.Value, value, StringComparison.InvariantCultureIgnoreCase) == 0).Select(x => x.Name).FirstOrDefault();
         }
+
+        public static IEnumerable<T> MarkSelected<T>(this IEnumerable<T> items, int[] selectedIds) where T : SelectItem
+        {
+            if (!items.HasItems())
+                return items;
+
+            foreach (var item in items)
+            {
+                item.Selected = selectedIds.Contains(item.Id ?? 0);
+            }
+
+            return items;
+        }
     }
 }

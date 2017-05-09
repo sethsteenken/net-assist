@@ -25,13 +25,13 @@ namespace NetAssist.Domain
             if (type == typeof(string))
                 return (T)(value as object);
             else if (type == typeof(bool))
-                return (T)(value.ParseBool() as object);
+                return (T)(value.ParseToBool() as object);
             else if (type == typeof(int))
-                return (T)(value.ParseInteger() as object);
+                return (T)(value.ParseToInteger() as object);
             else if (type == typeof(decimal))
                 return (T)(value.ParseDecimal() as object);
             else if (type == typeof(double))
-                return (T)(value.ParseDouble() as object);
+                return (T)(value.ParseToDouble() as object);
             else if (type == typeof(DateTime))
                 return (T)(ParseDateTime(value) as object);
             else if (type == typeof(Guid))

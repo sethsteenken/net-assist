@@ -20,5 +20,20 @@ namespace NetAssist.Domain
 
         public DateTime StartDate { get; private set; }
         public DateTime EndDate { get; private set; }
+
+        public override string ToString()
+        {
+            return ToString(null);
+        }
+
+        public string ToString(string format)
+        {
+            if (string.IsNullOrWhiteSpace(format))
+                format = DateTimeFormats.ShortDateFullYear;
+
+            return $"{StartDate.Format(format)} - {EndDate.Format(format)}";
+        }
+
+        public DateTimeRange ToUTC() => new DateTimeRange(StartDate.ToUniversalTime(), EndDate.ToUniversalTime());
     }
 }
