@@ -2,7 +2,7 @@
 
 namespace NetAssist.Domain
 {
-    public interface ILookupRepository<T> : IQueryRepository<T, int> where T : LookupEntity
+    public interface ILookupRepository<T> : IQueryRepository<T, int> where T : ILookupEntity
     {
         IReadOnlyList<SelectItem> GetSelections();
         IReadOnlyList<TSelectType> GetSelections<TSelectType>() where TSelectType : SelectItem;

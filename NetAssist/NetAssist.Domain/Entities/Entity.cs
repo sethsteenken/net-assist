@@ -2,7 +2,7 @@
 
 namespace NetAssist.Domain
 {
-    public abstract class Entity<TId> : IEquatable<Entity<TId>>
+    public abstract class Entity<TId> : IEntity<TId>, IEquatable<Entity<TId>>
     {
         public TId Id { get; protected set; }
 

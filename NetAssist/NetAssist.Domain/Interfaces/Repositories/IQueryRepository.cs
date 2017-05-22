@@ -2,7 +2,7 @@
 
 namespace NetAssist.Domain
 {
-    public interface IQueryRepository<TType, TKey> where TType : Entity<TKey>
+    public interface IQueryRepository<TType, TKey> where TType : IEntity<TKey>
     {
         TType GetById(TKey id);
         IReadOnlyList<TType> GetAll();

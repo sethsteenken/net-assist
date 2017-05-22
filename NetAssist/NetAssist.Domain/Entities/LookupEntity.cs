@@ -2,7 +2,7 @@
 
 namespace NetAssist.Domain
 {
-    public abstract class LookupEntity : Entity<int>
+    public abstract class LookupEntity : Entity<int>, ILookupEntity
     {
         protected LookupEntity() { }
 

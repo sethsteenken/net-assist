@@ -35,8 +35,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Attributes\HistoryStoreAttribute.cs" />
-    <Compile Include="Entities\DataEntityBase.cs" />
+    <Compile Include="Entities\DataEntity.cs" />
     <Compile Include="Entities\Entity.cs" />
+    <Compile Include="Entities\IDataEntity.cs" />
+    <Compile Include="Entities\IEntity.cs" />
+    <Compile Include="Entities\ILookupEntity.cs" />
     <Compile Include="Entities\LookupEntity.cs" />
     <Compile Include="Enums\CommandTypeOption.cs" />
     <Compile Include="Enums\SerializePropertiesOption.cs" />

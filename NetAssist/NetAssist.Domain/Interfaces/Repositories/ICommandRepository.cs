@@ -2,7 +2,7 @@
 
 namespace NetAssist.Domain
 {
-    public interface ICommandRepository<TType, TKey> where TType : Entity<TKey>
+    public interface ICommandRepository<TType, TKey> where TType : IEntity<TKey>
     {
         void AddOrUpdate(TType item);
         void Delete(TType item);

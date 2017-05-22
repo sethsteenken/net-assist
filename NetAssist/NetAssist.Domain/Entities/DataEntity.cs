@@ -2,17 +2,17 @@
 
 namespace NetAssist.Domain
 {
-    public abstract class DataEntityBase : Entity<int>
+    public abstract class DataEntity : Entity<int>, IDataEntity
     {
-        protected DataEntityBase() : this(Guid.NewGuid())
+        protected DataEntity() : this(Guid.NewGuid())
         {
         }
 
-        protected DataEntityBase(int id) : base(id)
+        protected DataEntity(int id) : base(id)
         {
         }
 
-        protected DataEntityBase(Guid guid)
+        protected DataEntity(Guid guid)
         {
             Guid = guid;
         }
