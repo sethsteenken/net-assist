@@ -19,7 +19,10 @@ namespace NetAssist.Domain
 
         public static IOrderedQueryable<T> OrderBy<T>(this IQueryable<T> source, SortCriteria sort, params object[] values)
         {
-            //Reference - http://stackoverflow.com/a/233505
+            if (sort == null)
+                return source.OrderBy(x => x);
+
+            // Reference - http://stackoverflow.com/a/233505
             string[] props = sort.SortBy.Split('.');
             Type type = typeof(T);
             ParameterExpression arg = Expression.Parameter(type, "p");
@@ -29,6 +32,9 @@ namespace NetAssist.Domain
             {
                 // use reflection (not ComponentModel) to mirror LINQ
                 PropertyInfo pi = type.GetProperty(prop);
+                if (pi == null)
+                    throw new InvalidOperationException($"Property not found on OrderBy attempt. IQueryable Item Type: {typeof(T).FullName} | Property Type: {type.FullName} | Property Name: '{prop}' | Full Property Reference: '{sort.SortBy}'.");
+
                 expr = Expression.Property(expr, pi);
                 type = pi.PropertyType;
             }

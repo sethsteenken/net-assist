@@ -253,5 +253,34 @@ namespace NetAssist
                 yield return item.ToLower();
             }
         }
+
+        public static string ToUpperFirstChar(this string value)
+        {
+            return ToUpperFirstChar(value, lowerRemainingChars: true);
+        }
+
+        public static string ToUpperFirstChar(this string value, bool lowerRemainingChars)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+                return value;
+
+            if (value.Length > 1)
+            {
+                if (lowerRemainingChars)
+                    value = value.ToLower();
+
+                return char.ToUpper(value[0]) + value.Substring(1);
+            }
+            else
+                return value.ToUpper();
+        }
+
+        public static string TrimEnd(this string input, string suffixToRemove, StringComparison comparisonType)
+        {
+            if (input != null && suffixToRemove != null && input.EndsWith(suffixToRemove, comparisonType))
+                return input.Substring(0, input.Length - suffixToRemove.Length);
+            else
+                return input;
+        }
     }
 }

@@ -6,17 +6,22 @@ namespace NetAssist.Domain
     {
         protected Age() { }
 
-        public Age(DateTime dateOfBirth)
+        public Age(DateTime dateOfBirth) : this(dateOfBirth, DateTime.Now)
         {
-            var now = DateTime.Now;
 
+        }
+
+        public Age(DateTime dateOfBirth, DateTime date)
+        {
             if (!dateOfBirth.HasValue())
-                dateOfBirth = now;
+                dateOfBirth = date;
 
-            int months = now.Month - dateOfBirth.Month;
-            int years = now.Year - dateOfBirth.Year;
+            DateOfBirth = dateOfBirth;
 
-            if (now.Day < dateOfBirth.Day)
+            int months = date.Month - dateOfBirth.Month;
+            int years = date.Year - dateOfBirth.Year;
+
+            if (date.Day < dateOfBirth.Day)
                 months--;
 
             if (months < 0)
@@ -37,6 +42,7 @@ namespace NetAssist.Domain
 
         public int Years { get; private set; }
         public int Months { get; private set; }
+        public DateTime DateOfBirth { get; private set; }
         public int TotalMonths => (Years * 12) + Months;
 
         public static Age Empty => new Age();

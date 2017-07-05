@@ -78,8 +78,11 @@
     <Compile Include="ValueObjects\CommandResults\CommandResult.cs" />
     <Compile Include="ValueObjects\CommandResults\EntitySaveResult.cs" />
     <Compile Include="ValueObjects\CommandResults\GenericDataSaveResult.cs" />
+    <Compile Include="ValueObjects\DataEntityId.cs" />
     <Compile Include="ValueObjects\DateTimeRange.cs" />
     <Compile Include="ValueObjects\DateTimeRangeOpenEnd.cs" />
+    <Compile Include="ValueObjects\EntityCount.cs" />
+    <Compile Include="ValueObjects\EntityHistoryDates.cs" />
     <Compile Include="ValueObjects\FileContent.cs" />
     <Compile Include="ValueObjects\FileData.cs" />
     <Compile Include="ValueObjects\FileDirectory.cs" />
