@@ -13,5 +13,6 @@ namespace NetAssist.Domain
         IReadOnlyList<FileContent> GetFiles(string directoryPath, ResultListFilter resultsFilter, out int total);
         IReadOnlyList<FileDirectory> GetDirectories(string path);
         string GetFileName(string path);
+        string Read(string path);
     }
 }

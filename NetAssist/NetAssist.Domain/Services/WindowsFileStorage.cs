@@ -7,7 +7,7 @@ namespace NetAssist.Domain
 {
     public class WindowsFileStorage : IFileStorage
     {
-        protected int UniqueMaxCount { get; set; } = 200;
+        public int UniqueMaxCount { get; protected set; } = 1000;
 
         public virtual string GetFullPath(string relativePath)
         {
@@ -18,7 +18,7 @@ namespace NetAssist.Domain
         {
             relativePath.SetNullToEmpty(trim: true);
 
-            if (createIfAbsent && !Directory.Exists(relativePath))
+            if (createIfAbsent && !Directory.Exists(relativePath) && !File.Exists(relativePath))
                 Directory.CreateDirectory(relativePath);
 
             return relativePath;
@@ -131,6 +131,14 @@ namespace NetAssist.Domain
 
             fileName = fileName.Trim();
             return $"{Path.GetFileNameWithoutExtension(fileName).Replace(".", "_").Replace(" ", "_")}{Path.GetExtension(fileName)}";
+        }
+
+        public virtual string Read(string path)
+        {
+            if (string.IsNullOrWhiteSpace(path))
+                return string.Empty;
+
+            return File.ReadAllText(GetFullPath(path));
         }
     }
 }
