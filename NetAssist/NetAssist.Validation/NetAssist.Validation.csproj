@@ -46,6 +46,7 @@
     <Compile Include="Interfaces\IValidator.cs" />
     <Compile Include="Models\BrokenRulesList.cs" />
     <Compile Include="Models\EntityDataStoreValidationError.cs" />
+    <Compile Include="Models\PropertyValidationRule.cs" />
     <Compile Include="Models\ValidationResult.cs" />
     <Compile Include="Models\ValidationRule.cs" />
     <Compile Include="Services\ValidatorBase.cs" />

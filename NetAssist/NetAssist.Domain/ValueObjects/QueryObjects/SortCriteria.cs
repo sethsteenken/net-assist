@@ -4,6 +4,8 @@ namespace NetAssist.Domain
 {
     public class SortCriteria : ValueObject<SortCriteria>
     {
+        protected SortCriteria() { }
+
         public SortCriteria(string sortBy) : this (sortBy, SortDirectionOption.Ascending)
         {
 

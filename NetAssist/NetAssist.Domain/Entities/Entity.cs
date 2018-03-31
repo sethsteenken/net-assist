@@ -11,9 +11,9 @@ namespace NetAssist.Domain
         protected Entity(TId id)
         {
             if (object.Equals(id, default(TId)))
-                throw new ArgumentException(string.Format("The Identifier of type {0} cannot be the type's default value.", typeof(TId)), "id");
+                throw new ArgumentException($"The Identifier of type {typeof(TId).FullName} cannot be the type's default value.", nameof(id));
 
-            this.Id = id;
+            Id = id;
         }
 
         protected Entity() { }

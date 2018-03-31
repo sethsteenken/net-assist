@@ -34,16 +34,21 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Attributes\HistoryStoreAttribute.cs" />
+    <Compile Include="Attributes\StoreHistoryAttribute.cs" />
     <Compile Include="Entities\DataEntity.cs" />
     <Compile Include="Entities\Entity.cs" />
-    <Compile Include="Entities\IDataEntity.cs" />
-    <Compile Include="Entities\IEntity.cs" />
-    <Compile Include="Entities\ILookupEntity.cs" />
+    <Compile Include="Entities\EntityHistory.cs" />
+    <Compile Include="Entities\EntityHistoryData.cs" />
+    <Compile Include="Entities\Interfaces\IDataEntity.cs" />
+    <Compile Include="Entities\Interfaces\IEntity.cs" />
+    <Compile Include="Entities\Interfaces\IEntityGuid.cs" />
+    <Compile Include="Entities\Interfaces\IEntityHistory.cs" />
+    <Compile Include="Entities\Interfaces\IEntityHistoryData.cs" />
+    <Compile Include="Entities\Interfaces\IEntityHistoryUpdated.cs" />
+    <Compile Include="Entities\Interfaces\ILookupEntity.cs" />
+    <Compile Include="Entities\Interfaces\IUserId.cs" />
     <Compile Include="Entities\LookupEntity.cs" />
-    <Compile Include="Enums\CommandTypeOption.cs" />
-    <Compile Include="Enums\SerializePropertiesOption.cs" />
-    <Compile Include="Enums\SortDirectionOption.cs" />
+    <Compile Include="Enums.cs" />
     <Compile Include="Extensions\AssemblyExtensions.cs" />
     <Compile Include="Extensions\DataEntityExtensions.cs" />
     <Compile Include="Extensions\DateTimeExtensions.cs" />
@@ -59,6 +64,7 @@
     <Compile Include="Interfaces\Repositories\IUnitOfWork.cs" />
     <Compile Include="Interfaces\Services\ICache.cs" />
     <Compile Include="Interfaces\Services\ICacheCleaner.cs" />
+    <Compile Include="Interfaces\Services\IEntityHistoryStore.cs" />
     <Compile Include="Interfaces\Services\IEntityValidationHandler.cs" />
     <Compile Include="Interfaces\Services\IFileStorage.cs" />
     <Compile Include="Interfaces\Services\ILogger.cs" />
@@ -67,6 +73,7 @@
     <Compile Include="Interfaces\Services\ISettings.cs" />
     <Compile Include="Interfaces\Services\IValueParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\EntityHistoryStore.cs" />
     <Compile Include="Services\ValueParser.cs" />
     <Compile Include="Services\WindowsFileStorage.cs" />
     <Compile Include="ValueObjects\Address.cs" />

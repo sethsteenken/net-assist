@@ -47,16 +47,19 @@
     <Compile Include="Extensions\AppDomainExtensions.cs" />
     <Compile Include="Extensions\ArrayExtensions.cs" />
     <Compile Include="Extensions\BoolExtensions.cs" />
-    <Compile Include="Extensions\DateTimeExtensions.cs" />
+    <Compile Include="Extensions\DateTime\DateTimeExtensions.cs" />
+    <Compile Include="Extensions\DateTime\DateTimeFormatExtensions.cs" />
+    <Compile Include="Extensions\DateTime\DateTimeTimeZoneExtensions.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Extensions\EnumExtesnsions.cs" />
     <Compile Include="Extensions\ExceptionExtensions.cs" />
     <Compile Include="Extensions\LinqExtensions.cs" />
-    <Compile Include="Extensions\NumericExtensions.cs" />
-    <Compile Include="Extensions\NumericFormatExtensions.cs" />
+    <Compile Include="Extensions\Numerics\NumericExtensions.cs" />
+    <Compile Include="Extensions\Numerics\NumericFormatExtensions.cs" />
     <Compile Include="Extensions\ObjectExtensions.cs" />
-    <Compile Include="Extensions\StringExtensions.cs" />
-    <Compile Include="Extensions\StringParseExtensions.cs" />
+    <Compile Include="Extensions\PropertyInfoExtensions.cs" />
+    <Compile Include="Extensions\String\StringExtensions.cs" />
+    <Compile Include="Extensions\String\StringParseExtensions.cs" />
     <Compile Include="Extensions\TimeSpanExtensions.cs" />
     <Compile Include="Extensions\TypeExtensions.cs" />
     <Compile Include="Extensions\ValueTypeExtensions.cs" />
@@ -64,10 +67,10 @@
     <Compile Include="Helpers\DateTimeHelper.cs" />
     <Compile Include="Helpers\GenericTypesHelper.cs" />
     <Compile Include="Helpers\ObjectHelper.cs" />
-    <Compile Include="Helpers\RegularExpressions.cs" />
     <Compile Include="Helpers\TypeSwitch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

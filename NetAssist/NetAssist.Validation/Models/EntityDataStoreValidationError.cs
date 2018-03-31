@@ -1,16 +1,17 @@
-﻿namespace NetAssist.Validation
+﻿using NetAssist.Validation.Models;
+
+namespace NetAssist.Validation
 {
-    public class EntityDataStoreValidationError : ValidationRule
+    public class EntityDataStoreValidationError : PropertyValidationRule
     {        
-        public EntityDataStoreValidationError(string entityType, string propertyName, string errorMessage) : base ($"{entityType}-{propertyName}", errorMessage)
+        public EntityDataStoreValidationError(string entityType, string propertyName, string errorMessage) : base (propertyName, errorMessage)
         {
             EntityType = entityType;
-            PropertyName = propertyName;
             ErrorMessage = errorMessage;
         }
 
         public string EntityType { get; private set; }
-        public string PropertyName { get; private set; }
+        public string PropertyName => Name;
         public string ErrorMessage { get; private set; }
 
         public override string Message => $"{PropertyName} is invalid. {ErrorMessage}";

@@ -10,20 +10,6 @@ namespace NetAssist
     {
         private Exception[] innerExceptions;
 
-        public IEnumerable<Exception> InnerExceptions
-        {
-            get
-            {
-                if (this.innerExceptions != null)
-                {
-                    for (int i = 0; i < this.innerExceptions.Length; ++i)
-                    {
-                        yield return this.innerExceptions[i];
-                    }
-                }
-            }
-        }
-
         public MultiException()
             : base()
         {
@@ -64,9 +50,18 @@ namespace NetAssist
             this.innerExceptions = innerExceptions.ToArray();
         }
 
-        private MultiException(SerializationInfo info, StreamingContext context)
-            : base(info, context)
+        public IEnumerable<Exception> InnerExceptions
         {
+            get
+            {
+                if (this.innerExceptions != null)
+                {
+                    for (int i = 0; i < this.innerExceptions.Length; ++i)
+                    {
+                        yield return this.innerExceptions[i];
+                    }
+                }
+            }
         }
     }
 }

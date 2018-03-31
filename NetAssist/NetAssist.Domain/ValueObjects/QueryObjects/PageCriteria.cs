@@ -4,6 +4,10 @@ namespace NetAssist.Domain
 {
     public class PageCriteria : ValueObject<PageCriteria>
     {
+        public static readonly int DefaultPageSize = 25;
+
+        protected PageCriteria() { }
+
         public PageCriteria(int size, int current)
         {
             Guard.Begin().IsGreaterThanZero(size, nameof(size)).IsGreaterThanZero(current, nameof(current)).Check();
@@ -22,7 +26,6 @@ namespace NetAssist.Domain
         public int EndIndex => StartIndex + Size;
         public int SizeAll => Current * Size;
 
-        [SerializeIgnore]
-        public static PageCriteria Default => new PageCriteria(25, 1);
+        public static PageCriteria Default => new PageCriteria(DefaultPageSize, 1);
     }
 }

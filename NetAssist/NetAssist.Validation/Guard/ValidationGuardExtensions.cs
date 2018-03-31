@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
@@ -152,5 +153,13 @@ namespace NetAssist.Validation
                 return validation;
         }
         #endregion
+
+        public static ValidationGuard IsNotNullOrEmptyList<T>(this ValidationGuard validation, IEnumerable<T> items, string paramName)
+        {
+            if (!items.HasItems())
+                return (validation ?? new ValidationGuard()).AddException(new InvalidOperationException($"IEnumerable of type {typeof(T).FullName} cannot be empty or null for parameter: {paramName}."));
+            else
+                return validation;
+        }
     }
 }

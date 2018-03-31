@@ -45,17 +45,17 @@ namespace NetAssist
         #endregion
 
         #region Parse Decimal
-        public static decimal ParseDecimal(this string value)
+        public static decimal ParseToDecimal(this string value)
         {
-            return ParseDecimal(value, allowEmpty: false);
+            return ParseToDecimal(value, allowEmpty: false);
         }
 
-        public static decimal ParseDecimal(this string value, bool allowEmpty)
+        public static decimal ParseToDecimal(this string value, bool allowEmpty)
         {
-            return ParseDecimal(value, allowEmpty, throwError: true);
+            return ParseToDecimal(value, allowEmpty, throwError: true);
         }
 
-        public static decimal ParseDecimal(this string value, bool allowEmpty, bool throwError)
+        public static decimal ParseToDecimal(this string value, bool allowEmpty, bool throwError)
         {
             if (string.IsNullOrWhiteSpace(value))
             {
@@ -188,6 +188,42 @@ namespace NetAssist
         }
         #endregion
 
+        #region Parse Float
+        public static float ParseToFloat(this string value)
+        {
+            return ParseToFloat(value, allowEmpty: false);
+        }
+
+        public static float ParseToFloat(this string value, bool allowEmpty)
+        {
+            return ParseToFloat(value, allowEmpty, throwError: true);
+        }
+
+        public static float ParseToFloat(this string value, bool allowEmpty, bool throwError)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                if (allowEmpty)
+                    return 0;
+                else if (throwError)
+                    throw new ArgumentNullException(nameof(value));
+                else
+                    return 0;
+            }
+
+            float num = 0;
+            if (!float.TryParse(value, out num))
+            {
+                if (throwError)
+                    throw new FormatException($"String value of {value} not correct format for parsing as float.");
+                else
+                    num = 0;
+            }
+
+            return num;
+        }
+        #endregion
+
         #region Parse DateTime
         public static DateTime? ParseToDateTime(this string value)
         {
@@ -221,6 +257,42 @@ namespace NetAssist
             }
 
             return date;
+        }
+        #endregion
+
+        #region Parse Guid
+        public static Guid? ParseToGuid(this string value)
+        {
+            return ParseToGuid(value, allowEmpty: false);
+        }
+
+        public static Guid? ParseToGuid(this string value, bool allowEmpty)
+        {
+            return ParseToGuid(value, allowEmpty, throwError: true);
+        }
+
+        public static Guid? ParseToGuid(this string value, bool allowEmpty, bool throwError)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+            {
+                if (allowEmpty)
+                    return null;
+                else if (throwError)
+                    throw new ArgumentNullException(nameof(value));
+                else
+                    return null;
+            }
+
+            Guid guid;
+            if (!Guid.TryParse(value, out guid))
+            {
+                if (throwError)
+                    throw new FormatException($"String value of {value} not correct format for parsing as Guid.");
+                else
+                    return null;
+            }
+
+            return guid;
         }
         #endregion
     }

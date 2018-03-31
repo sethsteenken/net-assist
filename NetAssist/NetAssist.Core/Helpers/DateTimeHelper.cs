@@ -25,8 +25,7 @@ namespace NetAssist
 
         public static string GetMonthName(int month)
         {
-            string name = "";
-            if (!_months.TryGetValue(month, out name))
+            if (!_months.TryGetValue(month, out string name))
                 throw new ArgumentException($"Month value '{month}' not a valid month.");
             return name;
         }

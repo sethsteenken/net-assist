@@ -2,13 +2,15 @@
 {
     public class Name : ValueObject<Name>
     {
+        public static readonly Name Empty = new Name();
+
+        protected Name() { }
+
         public Name(string firstName, string lastName)
         {
             FirstName = firstName.SetEmptyToNull();
             LastName = lastName.SetEmptyToNull();
         }
-
-        protected Name() { }
 
         public string FirstName { get; private set; }
         public string LastName { get; private set; }

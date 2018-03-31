@@ -1,17 +1,15 @@
-﻿using System;
-
-namespace NetAssist.Domain
+﻿namespace NetAssist.Domain
 {
     public class EntityHistoryDates : ValueObject<EntityHistoryDates>
     {
         protected EntityHistoryDates() { }
-        public EntityHistoryDates(DateTime createdDate, DateTime lastUpdatedDate)
+        public EntityHistoryDates(CommandDate createdDate, CommandDate lastUpdatedDate)
         {
-            CreatedDate = createdDate;
-            LastUpdatedDate = lastUpdatedDate;
+            CreatedDate = createdDate ?? CommandDate.Empty;
+            LastUpdatedDate = lastUpdatedDate ?? CommandDate.Empty;
         }
 
-        public DateTime CreatedDate { get; private set; }
-        public DateTime LastUpdatedDate { get; private set; }
+        public CommandDate CreatedDate { get; private set; }
+        public CommandDate LastUpdatedDate { get; private set; }
     }
 }

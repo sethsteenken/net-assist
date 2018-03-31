@@ -17,11 +17,16 @@ namespace NetAssist.Domain
             Message = message.SetEmptyToNull() ?? GetDefaultMessage(succeeded);
         }
 
+        public CommandResult(ValidationRule rule) : this(new BrokenRulesList(rule))
+        {
+
+        }
+
         public CommandResult(BrokenRulesList brokenRules)
         {
             Succeeded = brokenRules.Count == 0;
             BrokenRules = brokenRules ?? new BrokenRulesList();
-            Message = Succeeded ? "Success" : string.IsNullOrWhiteSpace(BrokenRules.Message) ? "Failed validation" : BrokenRules.Message;
+            Message = Succeeded ? "Success" : string.IsNullOrWhiteSpace(BrokenRules.Message) ? "Failed" : BrokenRules.Message;
         }
 
         private static string GetDefaultMessage(bool succeeded) => succeeded ? "Success" : "Failed";
@@ -35,5 +40,6 @@ namespace NetAssist.Domain
         public static CommandResult Success(string message) => new CommandResult(true, message);
         public static CommandResult Fail(BrokenRulesList brokenRules) => new CommandResult(brokenRules);
         public static CommandResult Fail(ValidationRule rule) => new CommandResult(new BrokenRulesList(rule));
+        public static CommandResult Fail(string message) => new CommandResult(new ValidationRule(message));
     }
 }

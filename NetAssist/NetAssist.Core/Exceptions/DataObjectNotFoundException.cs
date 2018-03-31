@@ -14,17 +14,12 @@ namespace NetAssist
 
         public DataObjectNotFoundException(string objectName, int? id) : base($"{FormatMessage(objectName)} Supplied Id: {id}") { }
 
-        public DataObjectNotFoundException(string objectName, Guid guid) : base($"{FormatMessage(objectName)} Supplied Guid: {guid}") { }
+        public DataObjectNotFoundException(string objectName, Guid guid) : base($"{FormatMessage(objectName)} Supplied Id: {guid}") { }
 
-        public DataObjectNotFoundException(string objectName, Guid? guid) : base($"{FormatMessage(objectName)} Supplied Guid: {guid}") { }
+        public DataObjectNotFoundException(string objectName, Guid? guid) : base($"{FormatMessage(objectName)} Supplied Id: {guid}") { }
 
         public DataObjectNotFoundException(string objectName, string message) : base($"{FormatMessage(objectName)} Message: {message}") { }
 
         public DataObjectNotFoundException(string message, Exception inner) : base(message, inner) { }
-        protected DataObjectNotFoundException(
-          System.Runtime.Serialization.SerializationInfo info,
-          System.Runtime.Serialization.StreamingContext context)
-            : base(info, context)
-        { }
     }
 }

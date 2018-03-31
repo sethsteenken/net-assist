@@ -9,6 +9,8 @@ namespace NetAssist.Domain
 
         public SelectItem(string value) : this(value, value) { }
 
+        public SelectItem(int id) : this(id.ToString()) { }
+
         public SelectItem(string value, string name) : this(value, name, false)
         {
 

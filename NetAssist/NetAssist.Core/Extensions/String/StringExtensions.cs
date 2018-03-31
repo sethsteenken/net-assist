@@ -10,6 +10,7 @@ namespace NetAssist
     public static class StringExtensions
     {
         internal const string DefaultDelimiter = ",";
+
         // They're always one character but EndsWith is shorter than
         // array style access to last path character. Change this
         // if performance are a (measured) issue.
@@ -57,7 +58,7 @@ namespace NetAssist
 
         public static string RemoveSpecialCharacters(this string input, string customRegEx = null)
         {
-            Regex r = new Regex(customRegEx == null ? RegularExpressions.SpecialCharacters : customRegEx, RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Compiled);
+            Regex r = new Regex(customRegEx == null ? "(?:[^a-z0-9 -]|(?<=['\"])s)" : customRegEx, RegexOptions.IgnoreCase | RegexOptions.CultureInvariant | RegexOptions.Compiled);
             return r.Replace(input, string.Empty);
         }
 

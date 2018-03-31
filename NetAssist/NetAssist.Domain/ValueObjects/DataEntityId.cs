@@ -17,7 +17,7 @@ namespace NetAssist.Domain
 
         public override string ToString()
         {
-            return $"(Id: {Id} Guid: {Guid})";
+            return $"Id: {Id} Guid: {Guid}";
         }
     }
 }

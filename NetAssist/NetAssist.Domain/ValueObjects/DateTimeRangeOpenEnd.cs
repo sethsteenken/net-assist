@@ -45,6 +45,7 @@ namespace NetAssist.Domain
 
         public DateTimeRangeOpenEnd ToUTC() => new DateTimeRangeOpenEnd(StartDate.ToUniversalTime(), EndDate?.ToUniversalTime());
 
-        public bool IsCurrent => StartDate < DateTime.UtcNow && EndDate.HasValue ? EndDate > DateTime.UtcNow : true;
+        // determine if StartDate is before current date and EndDate is greater than current date (if provided)
+        public virtual bool IsCurrent => StartDate.Date <= DateTime.Now.Date && (EndDate == null || EndDate.Value.Date >= DateTime.Now.Date);
     }
 }

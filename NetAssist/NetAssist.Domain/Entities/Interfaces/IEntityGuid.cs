@@ -2,7 +2,7 @@
 
 namespace NetAssist.Domain
 {
-    public interface IDataEntity : IEntity<int>
+    public interface IEntityGuid
     {
         Guid Guid { get; }
     }

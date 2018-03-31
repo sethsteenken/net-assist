@@ -4,6 +4,10 @@ namespace NetAssist.Domain
 {
     public class FullName : Name
     {
+        public static new FullName Empty = new FullName();
+
+        protected FullName() : base() { }
+
         public FullName(string firstName, string lastName) : this (firstName, null, lastName)
         {
 
@@ -13,8 +17,6 @@ namespace NetAssist.Domain
         {
             MiddleName = middleName.SetEmptyToNull();
         }
-
-        protected FullName() : base() {}
 
         public string MiddleName { get; private set; }
 

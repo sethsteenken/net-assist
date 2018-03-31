@@ -1,4 +1,7 @@
-﻿
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
 namespace NetAssist
 {
     public static class NumericExtensions
@@ -75,6 +78,26 @@ namespace NetAssist
                 default:
                     return "th";
             }
+        }
+
+        public static List<Tuple<int, int>> ToPairsList(this IEnumerable<int> list)
+        {
+            if (list == null)
+                return null;
+
+            // Ref - http://stackoverflow.com/a/7242116 
+            // get list of all pair combinations from list of ints
+            return (from item1 in list
+                    from item2 in list
+                    where item1 < item2
+                    select Tuple.Create(item1, item2))
+                    .ToList();
+        }
+
+        public static int DivideBy(this int value, int divideBy, bool roundUp = true)
+        {
+            int quotient = Math.DivRem(value, divideBy, out int remainder);
+            return remainder == 0 || !roundUp ? quotient : quotient + 1;
         }
     }
 }

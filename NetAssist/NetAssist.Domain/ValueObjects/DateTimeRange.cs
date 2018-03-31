@@ -21,6 +21,9 @@ namespace NetAssist.Domain
         public DateTime StartDate { get; private set; }
         public DateTime EndDate { get; private set; }
 
+        // determine if StartDate is before current date and EndDate is greater than current date
+        public virtual bool IsCurrent => StartDate.Date <= DateTime.Now.Date && EndDate.Date >= DateTime.Now.Date;
+
         public override string ToString()
         {
             return ToString(null);

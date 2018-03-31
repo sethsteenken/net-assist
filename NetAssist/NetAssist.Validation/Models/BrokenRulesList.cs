@@ -11,6 +11,8 @@ namespace NetAssist.Validation
 
         }
 
+        public static readonly BrokenRulesList Empty = new BrokenRulesList();
+
         public BrokenRulesList(IEnumerable<ValidationRule> list) : base(list)
         {
 
@@ -34,7 +36,7 @@ namespace NetAssist.Validation
                 return;
             }
 
-            if (!this.Any(x => x.Name == rule.Name))
+            if (!this.Any(x => x.Description == rule.Description))
                 Add(rule);
         }
 

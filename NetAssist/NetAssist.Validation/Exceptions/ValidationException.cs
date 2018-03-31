@@ -6,8 +6,6 @@ namespace NetAssist.Validation
     [Serializable]
     public class ValidationException : Exception
     {
-        public BrokenRulesList BrokenRules { get; private set; }
-
         public ValidationException(ValidationRule brokenRule) : this(new BrokenRulesList(new List<ValidationRule>() { brokenRule }), null)
         {
 
@@ -21,6 +19,8 @@ namespace NetAssist.Validation
         {
             BrokenRules = brokenRules ?? new BrokenRulesList();
         }
+
+        public BrokenRulesList BrokenRules { get; private set; }
 
         public virtual string FriendlyMessage
         {
