@@ -5,6 +5,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Seth Steenken</Authors>
     <Company />
+    <Description>Helpful .NET extensions and reusable classes including attributes, custom common exceptions, and parsing extensions.</Description>
   </PropertyGroup>
 
 </Project>

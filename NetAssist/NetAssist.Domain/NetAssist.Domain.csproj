@@ -8,8 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NetAssist.Core\NetAssist.Core.csproj" />
-    <ProjectReference Include="..\NetAssist.Validation\NetAssist.Validation.csproj" />
+    <PackageReference Include="NetAssist.Validation" Version="1.0.0" />
   </ItemGroup>
 
 </Project>

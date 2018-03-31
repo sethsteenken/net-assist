@@ -5,10 +5,11 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Seth Steenken</Authors>
     <Company />
+    <Description>Validation helper classes including rules, BrokenRulesList, and extendable Guard system.</Description>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NetAssist.Core\NetAssist.Core.csproj" />
+    <PackageReference Include="NetAssist.Core" Version="1.0.0" />
   </ItemGroup>
 
 </Project>
