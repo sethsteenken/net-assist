@@ -10,6 +10,11 @@ namespace NetAssist.Domain
     {
         protected FileContent() { }
 
+        public FileContent(string fileName) : this(fileName, 0)
+        {
+
+        }
+
         public FileContent(string fileName, int contentLength) : this(fileName, contentLength, ContentTypeHelper.GetMIMEType(fileName))
         {
         }

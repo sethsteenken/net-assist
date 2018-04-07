@@ -5,14 +5,15 @@ namespace NetAssist.Domain
 {
     public interface IFileStorage
     {
-        string GetFullPath(string relativePath);
-        string GetFullPath(string relativePath, bool createDirectoryIfAbsent);
-        string GenerateUniqueFileName(string path);
-        string Save(Stream stream, string directory, string fileName);
-        IReadOnlyList<FileContent> GetFiles(string directoryPath);
-        IReadOnlyList<FileContent> GetFiles(string directoryPath, ResultListFilter resultsFilter, out int total);
+        bool Exists(string path);
+        FileReference Save(Stream stream, string path, bool overwrite = false);
+        FileReference Save(string content, string path, bool overwrite = false);
+        FileReference Publish(string localFilePath, string path, bool overwrite = false);
+        string ReadContent(string path);
+        Stream Load(string path);
+        void Delete(string path);
+        IReadOnlyList<FileContent> GetFiles(string path);
+        IReadOnlyList<FileContent> GetFiles(string path, ResultListFilter resultsFilter, out int total);
         IReadOnlyList<FileDirectory> GetDirectories(string path);
-        string GetFileName(string path);
-        string Read(string path);
     }
 }
